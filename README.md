@@ -1,28 +1,55 @@
-# Muhamad Afrizal — IT Support Portfolio
+# Network Troubleshooting Guide
 
-Portfolio website pribadi untuk menampilkan CV, pengalaman kerja, skills, dan project IT Support/Network.
+## Checklist Dasar
 
-## Live Website
-- Custom domain: `https://cvmuhamadafrizal.my.id`
-- GitHub Pages: gunakan URL GitHub Pages setelah repository dipublish.
+### 1. Physical
+- Cek power.
+- Cek kabel LAN.
+- Cek indikator link.
+- Cek port switch.
 
-## Struktur
-- `index.html` — halaman portfolio
-- `style.css` — desain responsive
-- `script.js` — interaksi sederhana
-- `CNAME` — custom domain
-- `assets/CV-Muhamad-Afrizal.pdf` — CV ATS
-- `projects/` — dokumentasi project NOC/IT Support
+### 2. IP Configuration
+Windows:
+```powershell
+ipconfig /all
+```
 
-## Cara publish ke GitHub Pages
+Linux:
+```bash
+ip addr
+ip route
+```
 
-1. Buat repository publik, misalnya `cv-muhamad-afrizal`.
-2. Upload seluruh isi folder ini.
-3. Buka **Settings → Pages**.
-4. Pada **Build and deployment**, pilih **Deploy from a branch**, lalu `main` dan `/root`.
-5. Pada **Custom domain**, isi `cvmuhamadafrizal.my.id`.
-6. Pastikan file `CNAME` tetap berada di root repository.
-7. Di provider domain, arahkan DNS sesuai panduan GitHub Pages.
-8. Aktifkan **Enforce HTTPS** setelah sertifikat tersedia.
+### 3. Connectivity
+```bash
+ping 192.168.1.1
+ping 8.8.8.8
+```
 
-GitHub Pages mendukung website CV/portfolio dan custom domain.
+### 4. DNS
+```bash
+nslookup google.com
+```
+
+### 5. Route
+Windows:
+```powershell
+tracert 8.8.8.8
+```
+
+Linux:
+```bash
+traceroute 8.8.8.8
+```
+
+## Dokumentasi
+Setiap troubleshooting sebaiknya mencatat:
+- waktu kejadian
+- perangkat/user
+- gejala
+- hasil pengecekan
+- tindakan
+- hasil akhir
+- escalation jika ada
+
+> Contoh ini dibuat sebagai simulasi portfolio dan tidak menggunakan konfigurasi jaringan perusahaan.
